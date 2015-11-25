@@ -4,6 +4,7 @@
 #include <string>
 
 enum CTYPE {COREA, COREB};  //之前input用过的enum办法,A是0,B是1
+//之所以这样定义,用户在使用时只知道标签,不知道具体的定义.
 class SingleCore
 {
 public:
