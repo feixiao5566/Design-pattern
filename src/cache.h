@@ -3,20 +3,19 @@
 
 #include <iostream>
 #include "strategy.h"
+
+//Cache需要用到替换算法
+template <class RA>
 class Cache
 {
     public:
-        Cache(ReplaceAlgorithm *ra) : m_ra(ra)
-        {}
-        ~Cache()
-        {
-            delete m_ra;
-        }
+        Cache(){}
+        ~Cache(){}
         void Replace()
         {
-            m_ra->Replace();
+            m_ra.Replace();
         }
     private:
-        ReplaceAlgorithm *m_ra;
+        RA m_ra;
 };
 #endif

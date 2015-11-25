@@ -3,7 +3,7 @@
 
 int main()
 {
-    Cache cache(new LRU_ReplaceAlgorithm());    //暴露了算法的定义
+    Cache<Random_ReplaceAlgorithm> cache;   //模板实参
     cache.Replace();
     return 0;
 }
