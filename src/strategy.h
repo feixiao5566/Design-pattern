@@ -28,7 +28,7 @@ class FIFO_ReplaceAlgorithm : public ReplaceAlgorithm
             std::cout<<"First in First out repalce algorithm"<<std::endl;
         }
 };
-class Random_RepalceAlgorithm : public ReplaceAlgorithm
+class Random_ReplaceAlgorithm : public ReplaceAlgorithm
 {
     public:
         void Replace()
