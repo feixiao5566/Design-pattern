@@ -4,8 +4,8 @@ class Base
 {
     public:
         virtual void f(float x){cout<<"Base::f(float)"<<x<<endl;}
-        void g(float x){cout<<"Base::g(float)"<<x<<endl;}
-        void h(float x){cout<<"Base::h(float)"<<x<<endl;}
+        virtual void g(float x){cout<<"Base::g(float)"<<x<<endl;}
+        virtual void h(float x){cout<<"Base::h(float)"<<x<<endl;}
 };
 
 class Derived : public Base
@@ -62,4 +62,18 @@ int main(void)
 //另外,很明显的是董俊杰并没有看明白林锐在说什么
 //而林锐当时写书时对虚函数知其然不知其所以然
 //陈皓大大好厉害~
-//
+//---------------2015年11月26日18:02--------------
+//好吧,又又又认真的把三个文章看了一下,加上自己的理解,应该是这样的:
+//先引用董俊杰
+//"
+//决定bp和dp调用函数运行结果的不是他们指向的地址，而是他们的指针类型。
+//“只有在通过基类指针或引用间接指向派生类子类型时多态性才会起作用”(C++ Primer 3rd Edition)
+//pb是基类指针，pd是派生类指针，pd的所有函数调用都只是调用自己的函数，和多态性无关，
+//所以pd的所有函数调用的结果都输出Derived::是完全正常的；pb的函数调用如果有virtual则根
+//据多态性调用派生类的，如果没有virtual则是正常的静态函数调用，还是调用基类的，所以有
+//virtual的f函数调用输出Derived::，其它两个没有virtual则还是输出Base::
+//"
+//我自己的测试是,父类的函数有声明virtual,并且参数与子类相同时,会调用子类函数覆盖
+//如果参数不同,有virtual也不会覆盖
+//没有virtual是普通函数不覆盖
+//完了
